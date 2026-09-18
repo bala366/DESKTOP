@@ -1,0 +1,35 @@
+name: Compilar Instalador Desktop Casarao
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Baixar projeto
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Compilar programa
+        run: pyinstaller --noconfirm --onefile --windowed --name CarteiraCasarao --add-data "assets;assets" main.py
+
+      - name: Compilar instalador
+        run: iscc instalador.iss
+
+      - name: Enviar instalador
+        uses: actions/upload-artifact@v4
+        with:
+          name: INSTALADOR-CARTEIRA-CASARAO-DESKTOP
+          path: installer/*.exe
+          if-no-files-found: error
