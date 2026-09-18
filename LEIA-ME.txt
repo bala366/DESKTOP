@@ -1,0 +1,7 @@
+CARTEIRA DE CLIENTES CASARÃO DO CAMPO - DESKTOP WINDOWS
+- 258 clientes pré-carregados.
+- Dashboard, Clientes, Movimento, Histórico, Editar/Excluir e Relatórios PDF.
+- PDFs: Downloads\Movimentação de Clientes Sabor do Campo
+- Banco: %LOCALAPPDATA%\CasaraoDoCampo\carteira.db
+- O instalador cria atalho na Área de Trabalho e entrada de desinstalação do Windows.
+Compile pelo GitHub Actions usando .github/workflows/windows.yml.
